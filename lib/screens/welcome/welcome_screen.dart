@@ -17,14 +17,16 @@ class WelcomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Spacer(flex: 2), //2/6
+                  Spacer(flex: 1), //2/6
                   Text(
                     "Quiz App",
                     style: Theme.of(context).textTheme.headline4.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 48),
                   ),
                   Spacer(), // 1/6
-                  TextField(
+                  Container(
+                    margin: EdgeInsets.all(10.0),
+                    child: TextField(
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Color(0xFF1C2341),
@@ -34,7 +36,11 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  TextField(
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(10.0),
+
+                    child: TextField(
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Color(0xFF1C2341),
@@ -43,14 +49,16 @@ class WelcomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                     ),
+                   ),
                   ),
-                  Spacer(), // 1/6
                   InkWell(
                     onTap: () => Get.to(QuizScreen()),
+
                     child: Container(
-                      width: double.infinity,
+
                       alignment: Alignment.center,
                       padding: EdgeInsets.all(kDefaultPadding * 0.5), // 15
+                      margin: EdgeInsets.only(left:60.0, right:60.0, top:40.0, bottom: 30.0),
                       decoration: BoxDecoration(
                         gradient: kPrimaryGradient,
                         borderRadius: BorderRadius.all(Radius.circular(12)),
@@ -61,6 +69,18 @@ class WelcomeScreen extends StatelessWidget {
                             .textTheme
                             .button
                             .copyWith(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                  InkWell(
+                    //onTap: () =>Get.to(Register()),
+                    child: Container(
+                      alignment: Alignment.center,
+                      margin: EdgeInsets.only(left:60.0, right:60.0),
+                      child: Text("Don't have an account? Register here.",
+                        textAlign: TextAlign.center,
+                        style:  Theme.of(context).textTheme.headline4.copyWith(
+                          color: Colors.blueAccent, fontSize: 20, ),
                       ),
                     ),
                   ),
