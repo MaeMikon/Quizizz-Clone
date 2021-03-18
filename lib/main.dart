@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:quiz_app/screens/welcome/welcome_screen.dart';
-import 'file:///C:/Users/Admin/Documents/GitHub/Quizizz-Clone/lib/screens/register/register_screen.dart';
+import 'screens/welcome/welcome_screen.dart';
+import 'screens/register/register_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       home: Register_Screen(),
+      // home: WelcomeScreen(),
     );
   }
 }

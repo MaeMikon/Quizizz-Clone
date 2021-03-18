@@ -100,7 +100,27 @@ Widget build(BuildContext context) {
                     ),
                   ),
                 ),
+                InkWell(
+                  onTap: () => Get.to(WelcomeScreen()),
 
+                  child: Container(
+
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.all(kDefaultPadding * 0.5), // 15
+                    margin: EdgeInsets.only(left:60.0, right:60.0, top:40.0, bottom: 30.0),
+                    decoration: BoxDecoration(
+                      gradient: kPrimaryGradient,
+                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                    ),
+                    child: Text(
+                      "I Have an Account",
+                      style: Theme.of(context)
+                          .textTheme
+                          .button
+                          .copyWith(color: Colors.black),
+                    ),
+                  ),
+                ),
                 Spacer(flex: 2), // it will take 2/6 spaces
               ],
             ),
