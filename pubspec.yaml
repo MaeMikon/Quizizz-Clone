@@ -29,7 +29,8 @@ dependencies:
   cupertino_icons: ^1.0.0
 
   # to handle SVGs for Android, iOS, and Web
-  websafe_svg: ^1.1.4
+  websafe_svg: ^1.1.4+2
+  flutter_svg: ^0.19.2+1
 
   # state management, intelligent dependency injection, and route management
   get: ^3.24.0
