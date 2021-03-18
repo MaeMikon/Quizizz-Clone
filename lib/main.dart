@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:quiz_app/screens/welcome/welcome_screen.dart';
-import 'package:quiz_app/screens/register_screen.dart';
+import 'file:///C:/Users/Admin/Documents/GitHub/Quizizz-Clone/lib/screens/register/register_screen.dart';
 
 void main() {
   runApp(MyApp());
