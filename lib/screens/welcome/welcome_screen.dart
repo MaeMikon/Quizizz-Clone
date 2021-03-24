@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
+import 'package:quiz_app/screens/area/select_area.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
@@ -52,7 +53,7 @@ class WelcomeScreen extends StatelessWidget {
                    ),
                   ),
                   InkWell(
-                    onTap: () => Get.to(QuizScreen()),
+                    onTap: () => Get.to(SelectArea()),
 
                     child: Container(
 
