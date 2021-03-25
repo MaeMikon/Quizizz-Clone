@@ -43,6 +43,7 @@ class WelcomeScreen extends StatelessWidget {
 
                     child: TextField(
                     decoration: InputDecoration(
+                      obscureText: true,
                       filled: true,
                       fillColor: Color(0xFF1C2341),
                       hintText: "Password",
