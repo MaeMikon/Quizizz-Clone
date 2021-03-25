@@ -18,6 +18,7 @@ class Body extends StatelessWidget {
     // So that we have acccess our controller
     QuestionController _questionController = Get.put(QuestionController());
     return Stack(
+      fit: StackFit.expand,
       children: [
         WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
         SafeArea(
@@ -37,7 +38,7 @@ class Body extends StatelessWidget {
                   () => Text.rich(
                     TextSpan(
                       text:
-                          "Question ${_questionController.questionNumber.value}",
+                          "Câu ${_questionController.questionNumber.value}",
                       style: Theme.of(context)
                           .textTheme
                           .headline4

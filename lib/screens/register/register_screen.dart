@@ -10,8 +10,9 @@ class Register_Screen extends StatelessWidget{
 Widget build(BuildContext context) {
   return Scaffold(
     body: Stack(
+      fit: StackFit.expand,
       children: [
-        WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
+        WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.cover),
         SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -93,27 +94,6 @@ Widget build(BuildContext context) {
                     ),
                     child: Text(
                       "Create Account",
-                      style: Theme.of(context)
-                          .textTheme
-                          .button
-                          .copyWith(color: Colors.black),
-                    ),
-                  ),
-                ),
-                InkWell(
-                  onTap: () => Get.to(WelcomeScreen()),
-
-                  child: Container(
-
-                    alignment: Alignment.center,
-                    padding: EdgeInsets.all(kDefaultPadding * 0.5), // 15
-                    margin: EdgeInsets.only(left:60.0, right:60.0, top:40.0, bottom: 30.0),
-                    decoration: BoxDecoration(
-                      gradient: kPrimaryGradient,
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
-                    ),
-                    child: Text(
-                      "I Have an Account",
                       style: Theme.of(context)
                           .textTheme
                           .button

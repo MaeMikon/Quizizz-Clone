@@ -4,12 +4,14 @@ import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 import 'package:quiz_app/screens/area/select_area.dart';
+import 'package:quiz_app/screens/register/register_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
           WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
           SafeArea(
@@ -74,7 +76,7 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   InkWell(
-                    //onTap: () =>Get.to(Register()),
+                    onTap: () =>Get.to(Register_Screen()),
                     child: Container(
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(left:60.0, right:60.0),

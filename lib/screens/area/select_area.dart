@@ -11,6 +11,7 @@ class SelectArea extends StatelessWidget{
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
           WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
           SafeArea(
