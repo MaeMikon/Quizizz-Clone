@@ -45,7 +45,6 @@ class WelcomeScreen extends StatelessWidget {
 
                     child: TextField(
                     decoration: InputDecoration(
-                      obscureText: true,
                       filled: true,
                       fillColor: Color(0xFF1C2341),
                       hintText: "Password",
@@ -53,6 +52,7 @@ class WelcomeScreen extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(12)),
                       ),
                     ),
+                      obscureText: true,
                    ),
                   ),
                   InkWell(
