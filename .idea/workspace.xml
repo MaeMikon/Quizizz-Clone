@@ -32,6 +32,8 @@
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/55d1520b3bf36ee88858de016a54822a/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/55d1520b3bf36ee88858de016a54822a/debug_android_application.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/55d1520b3bf36ee88858de016a54822a/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/55d1520b3bf36ee88858de016a54822a/flutter_assets.d" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
@@ -43,14 +45,18 @@
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/welcome/welcome_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/welcome/welcome_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/area/select_area.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/area/select_area.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/quiz/components/body.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/quiz/components/body.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/quiz/components/progress_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/quiz/components/progress_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_3a_XL_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -144,34 +150,34 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="19" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1616034789710" />
-    <state x="92" y="92" width="1182" height="544" key="AVDManager" timestamp="1616652179985">
+    <state x="92" y="92" width="1182" height="544" key="AVDManager" timestamp="1617249258042">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1616652179985" />
+    <state x="92" y="92" width="1182" height="544" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1617249258042" />
     <state x="488" y="150" key="FileChooserDialogImpl" timestamp="1616643709470">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="488" y="150" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616643709470" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1616023359217" />
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1616656040829">
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom" timestamp="1617250293040">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616656040829" />
+    <state width="1323" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1617250293040" />
     <state width="1491" height="211" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1616024709512" />
-    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1616656040829">
+    <state width="1323" height="178" key="GridCell.Tab.0.center" timestamp="1617250293040">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616656040829" />
+    <state width="1323" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1617250293040" />
     <state width="1491" height="211" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1616024709512" />
-    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1616656040829">
+    <state width="1323" height="178" key="GridCell.Tab.0.left" timestamp="1617250293040">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616656040829" />
+    <state width="1323" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1617250293040" />
     <state width="1491" height="211" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1616024709512" />
-    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1616656040829">
+    <state width="1323" height="178" key="GridCell.Tab.0.right" timestamp="1617250293040">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616656040829" />
+    <state width="1323" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1617250293040" />
     <state width="1491" height="211" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1616024709512" />
     <state width="254" height="198" key="RunAnythingAction_Filter_Popup" timestamp="1616034676664">
       <screen x="0" y="0" width="1366" height="728" />

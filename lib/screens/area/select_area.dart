@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
+import 'package:quiz_app/screens/quiz/components/progress_bar.dart';
 import 'package:quiz_app/screens/welcome/welcome_screen.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 
@@ -20,34 +23,47 @@ class SelectArea extends StatelessWidget{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Spacer(flex: 1), //2/6
-                  Text(
-                    "Lựa chọn chủ đề",
-                    style: Theme.of(context).textTheme.headline4.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 32),
+                  Spacer(), //2/6
+                  Align(
+                    alignment: Alignment.center,
+                    child:
+                    Text("Quizz App", style: Theme.of(context).textTheme.headline4.copyWith(
+                          color: Colors.white, fontWeight: FontWeight.bold, fontSize: 52),
+                    ),
                   ),
-                  Spacer(), // 1/6
+
                   InkWell(
                     onTap: () => Get.to(QuizScreen()),
-
-                    child: Container(
-
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(kDefaultPadding * 0.5), // 15
-                      margin: EdgeInsets.only(left:60.0, right:60.0, top:40.0, bottom: 30.0),
+                    child:
+                    Container(
+                      alignment: Alignment.bottomLeft,
+                      padding: EdgeInsets.all(15), // 15
+                      margin: EdgeInsets.only(left:30.0, right:30.0, top:20.0, bottom: 20.0),
                       decoration: BoxDecoration(
-                        gradient: kPrimaryGradient,
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                        color: Colors.white60,
+                        borderRadius: BorderRadius.all(Radius.circular(25)),
                       ),
-                      child: Text(
-                        "Hóa học",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.black),
-                      ),
-                    ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                        children: <Widget>[
+                          Text("Hóa học", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 32)),
+                          new LinearPercentIndicator(
+                            width: 300,
+                            animation: true,
+                            lineHeight: 25.0,
+                            animationDuration: 2000,
+                            percent: 0.5,
+                            center: Text("50.0%"),
+                            linearStrokeCap: LinearStrokeCap.roundAll,
+                            progressColor: Colors.greenAccent,
+                          ),
+                          Text("10/20 câu hỏi đã hoàn thành", style: TextStyle(color: Colors.black, fontSize: 18),),
+                        ],
+                      )
                   ),
+              ),
+
                   InkWell(
                     onTap: () {
                       AlertDialog alert = AlertDialog(
@@ -61,24 +77,36 @@ class SelectArea extends StatelessWidget{
                       );
                     },
 
-                    child: Container(
+                    child:
+                    Container(
+                        alignment: Alignment.bottomLeft,
+                        padding: EdgeInsets.all(15), // 15
+                        margin: EdgeInsets.only(left:30.0, right:30.0, top:20.0, bottom: 20.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white60,
+                          borderRadius: BorderRadius.all(Radius.circular(25)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(kDefaultPadding * 0.5), // 15
-                      margin: EdgeInsets.only(left:60.0, right:60.0, top:40.0, bottom: 30.0),
-                      decoration: BoxDecoration(
-                        gradient: kPrimaryGradient,
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                      child: Text(
-                        "Vật lý",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.black),
-                      ),
+                          children: <Widget>[
+                            Text("Vật lý", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 32)),
+                            new LinearPercentIndicator(
+                              width: 300,
+                              animation: true,
+                              lineHeight: 25.0,
+                              animationDuration: 2000,
+                              percent: 0.0,
+                              center: Text("0.0%"),
+                              linearStrokeCap: LinearStrokeCap.roundAll,
+                              progressColor: Colors.greenAccent,
+                            ),
+                            Text("Chưa có câu hỏi", style: TextStyle(color: Colors.black, fontSize: 18),),
+                          ],
+                        )
                     ),
                   ),
+
                   InkWell(
                     onTap: () {
                       AlertDialog alert = AlertDialog(
@@ -92,25 +120,36 @@ class SelectArea extends StatelessWidget{
                       );
                     },
 
-                    child: Container(
+                    child:
+                    Container(
+                        alignment: Alignment.bottomLeft,
+                        padding: EdgeInsets.all(15), // 15
+                        margin: EdgeInsets.only(left:30.0, right:30.0, top:20.0, bottom: 20.0),
+                        decoration: BoxDecoration(
+                          color: Colors.white60,
+                          borderRadius: BorderRadius.all(Radius.circular(25)),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
-                      alignment: Alignment.center,
-                      padding: EdgeInsets.all(kDefaultPadding * 0.5), // 15
-                      margin: EdgeInsets.only(left:60.0, right:60.0, top:40.0, bottom: 30.0),
-                      decoration: BoxDecoration(
-                        gradient: kPrimaryGradient,
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                      child: Text(
-                        "Lịch sử",
-                        style: Theme.of(context)
-                            .textTheme
-                            .button
-                            .copyWith(color: Colors.black),
-                      ),
+                          children: <Widget>[
+                            Text("Lịch sử", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 32)),
+                            new LinearPercentIndicator(
+                              width: 300,
+                              animation: true,
+                              lineHeight: 25.0,
+                              animationDuration: 2000,
+                              percent: 0.0,
+                              center: Text("0.0%"),
+                              linearStrokeCap: LinearStrokeCap.roundAll,
+                              progressColor: Colors.greenAccent,
+                            ),
+                            Text("Chưa có câu hỏi", style: TextStyle(color: Colors.black, fontSize: 18),),
+                          ],
+                        )
                     ),
                   ),
-                  Spacer(flex: 2), // it will take 2/6 spaces
+                  Spacer(flex: 1), // it will take 2/6 spaces
                 ],
               ),
             ),
