@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:get/get.dart';
 import 'package:quiz_app/screens/welcome/welcome_screen.dart';
 
 class Register_Screen extends StatelessWidget{
+
+final databaseReference = FirebaseDatabase.instance.reference();
+final _username = TextEditingController();
+final _email = TextEditingController();
+final _password = TextEditingController();
+ 
 @override
 Widget build(BuildContext context) {
   return Scaffold(
@@ -29,19 +35,7 @@ Widget build(BuildContext context) {
                 Container(
                   margin: EdgeInsets.all(10.0),
                   child: TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xFF1C2341),
-                      hintText: "Email address",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.all(10.0),
-                  child: TextField(
+                    controller: _username,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Color(0xFF1C2341),
@@ -53,9 +47,24 @@ Widget build(BuildContext context) {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.all(10.0),
-
+                  margin: EdgeInsets.all(10.0),
                   child: TextField(
+                    controller: _email,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color(0xFF1C2341),
+                      hintText: "Email",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.all(10.0),
+                  child: TextField(
+                    controller: _password,
+                    obscureText: true,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Color(0xFF1C2341),
@@ -68,20 +77,24 @@ Widget build(BuildContext context) {
                 ),
                 Container(
                     padding: EdgeInsets.all(10.0),
-
                     child: TextField(
-                        decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Color(0xFF1C2341),
-                            hintText: "Confirm Password",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(12)),
-                )
-                        ),
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color(0xFF1C2341),
+                        hintText: "Confirm Password",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        )
+                      ),
                     ),
                 ),
                 InkWell(
-                  onTap: () => Get.to(WelcomeScreen()),
+                  // onTap: () => Get.to(WelcomeScreen()),
+
+                  onTap: () {
+                    createAccount();
+                  },
 
                   child: Container(
 
@@ -110,7 +123,17 @@ Widget build(BuildContext context) {
     ),
   );
 }
+
+  void createAccount() {
+    databaseReference.child("1").set({
+      'username': _username.text,
+      'email': _email.text,
+      'password': _password.text
+    });
+    Get.to(WelcomeScreen());
+  } 
 }
+
 
 
 

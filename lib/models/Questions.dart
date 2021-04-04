@@ -1,3 +1,5 @@
+import 'package:firebase_database/firebase_database.dart';
+
 class Question {
   final int id, answer;
   final String question;
@@ -31,4 +33,5 @@ const List sample_data = [
     "options": ['Làm thuốc nổ', 'Làm chất xúc tác', 'Làm thuốc trừ sâu', 'Tất cả các đáp án trên'],
     "answer_index": 2,
   },
+  
 ];
