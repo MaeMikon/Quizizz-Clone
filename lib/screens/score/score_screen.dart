@@ -22,16 +22,32 @@ class ScoreScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 82)
               ),
               Text(
-                "${_qnController.correctAns * 10}/${_qnController.questions.length * 10}",
+                "${_qnController.numOfCorrectAns * 10}/${_qnController.questions.length * 10}",
                 style: Theme.of(context)
                     .textTheme
                     .headline4
                     .copyWith(color: kSecondaryColor),
               ),
+              if (_qnController.numOfCorrectAns/_qnController.questions.length >= 0.9)
               Text(
-                  "Excellent",
+                  "Excellent!",
                   style: TextStyle(fontSize: 60)
               )
+              else if (_qnController.numOfCorrectAns/_qnController.questions.length >= 0.8)
+                Text(
+                    "Good",
+                    style: TextStyle(fontSize: 60)
+                )
+              else if (_qnController.numOfCorrectAns/_qnController.questions.length >= 0.5)
+                  Text(
+                      "Not bad",
+                      style: TextStyle(fontSize: 60)
+                  )
+                else
+                    Text(
+                        "Try harder",
+                        style: TextStyle(fontSize: 60)
+                    )
             ],
           )
         ],
