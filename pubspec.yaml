@@ -28,6 +28,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   firebase_database: ^6.1.1
+  rflutter_alert: ^2.0.2
+  sweetalert: any
 
   # to handle SVGs for Android, iOS, and Web
   websafe_svg: ^1.1.4+2

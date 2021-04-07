@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
-import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 import 'package:quiz_app/screens/area/select_area.dart';
 import 'package:quiz_app/screens/register/register_screen.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:sweetalert/sweetalert.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  final databaseReference = FirebaseDatabase.instance.reference();
+  final _email = TextEditingController();
+  final _password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,33 +35,35 @@ class WelcomeScreen extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xFF1C2341),
-                      hintText: "Email address",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      controller: _email,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color(0xFF1C2341),
+                        hintText: "Email",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
                       ),
                     ),
-                  ),
                   ),
                   Container(
                     padding: EdgeInsets.all(10.0),
 
                     child: TextField(
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Color(0xFF1C2341),
-                      hintText: "Password",
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(12)),
+                      controller: _password,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Color(0xFF1C2341),
+                        hintText: "Password",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(12)),
+                        ),
                       ),
                     ),
-                      obscureText: true,
-                   ),
                   ),
                   InkWell(
-                    onTap: () => Get.to(SelectArea()),
+                    onTap: () => login(context),
 
                     child: Container(
 
@@ -96,5 +103,27 @@ class WelcomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void login(BuildContext context) {
+    if (_email.text == "") {
+      SweetAlert.show(context, subtitle: "Email is not empty", style: SweetAlertStyle.error);
+    }
+    else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(_email.text)) {
+      SweetAlert.show(context, subtitle: "Email is invalid", style: SweetAlertStyle.error);
+    }
+    else if (_password.text == "") {
+      SweetAlert.show(context, subtitle: "Password is not empty", style: SweetAlertStyle.error);
+    }
+    else {
+      databaseReference.child("user_information").once().then((DataSnapshot snapshot){
+        if(snapshot.value["email"] == _email.text && snapshot.value["password"] == _password.text) {
+          Get.to(SelectArea());
+        }
+        else {
+          SweetAlert.show(context, subtitle: "Invalid username or password", style: SweetAlertStyle.error);
+        }
+      });
+    }
   }
 }
