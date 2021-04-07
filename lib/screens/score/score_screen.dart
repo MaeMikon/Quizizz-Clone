@@ -14,24 +14,40 @@ class ScoreScreen extends StatelessWidget {
         children: [
           WebsafeSvg.asset("assets/icons/bg.svg", fit: BoxFit.fill),
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Spacer(flex: 3),
               Text(
-                "Số điểm đạt được",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline3
-                    .copyWith(color: kSecondaryColor),
+                "Score",
+                style: TextStyle(fontSize: 82)
               ),
-              Spacer(),
               Text(
-                "${_qnController.correctAns * 10}/${_qnController.questions.length * 10}",
+                "${_qnController.numOfCorrectAns * 10}/${_qnController.questions.length * 10}",
                 style: Theme.of(context)
                     .textTheme
                     .headline4
                     .copyWith(color: kSecondaryColor),
               ),
-              Spacer(flex: 3),
+              if (_qnController.numOfCorrectAns/_qnController.questions.length >= 0.9)
+              Text(
+                  "Excellent!",
+                  style: TextStyle(fontSize: 60)
+              )
+              else if (_qnController.numOfCorrectAns/_qnController.questions.length >= 0.8)
+                Text(
+                    "Good",
+                    style: TextStyle(fontSize: 60)
+                )
+              else if (_qnController.numOfCorrectAns/_qnController.questions.length >= 0.5)
+                  Text(
+                      "Not bad",
+                      style: TextStyle(fontSize: 60)
+                  )
+                else
+                    Text(
+                        "Try harder",
+                        style: TextStyle(fontSize: 60)
+                    )
             ],
           )
         ],
