@@ -33,5 +33,10 @@ const List sample_data = [
     "options": ['Làm thuốc nổ', 'Làm chất xúc tác', 'Làm thuốc trừ sâu', 'Tất cả các đáp án trên'],
     "answer_index": 2,
   },
-  
+  {
+    "id": 5,
+    "question": "Số oxi hóa tối đa của các-bon là bao nhiêu",
+    "options": ['2', '3', '4', '5'],
+    "answer_index": 2,
+  },
 ];
