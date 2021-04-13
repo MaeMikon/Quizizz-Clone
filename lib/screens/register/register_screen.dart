@@ -148,7 +148,13 @@ class Register_Screen extends StatelessWidget{
         'email': _email.text,
         'password': _password.text
       });
-      Get.to(WelcomeScreen());
+      Navigator.pushAndRemoveUntil<dynamic>(
+        context,
+        MaterialPageRoute<dynamic>(
+          builder: (BuildContext context) => WelcomeScreen(),
+        ),
+        (route) => false,
+      );
     }
   } 
 }

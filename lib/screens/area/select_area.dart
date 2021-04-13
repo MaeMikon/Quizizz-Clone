@@ -5,9 +5,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
-import 'package:quiz_app/screens/quiz/components/progress_bar.dart';
-import 'package:quiz_app/screens/welcome/welcome_screen.dart';
-import 'package:quiz_app/screens/quiz/quiz_screen.dart';
+import 'package:quiz_app/models/Questions.dart';
 
 class SelectArea extends StatelessWidget{
   @override
@@ -33,7 +31,10 @@ class SelectArea extends StatelessWidget{
                   ),
 
                   InkWell(
-                    onTap: () => Get.to(QuizScreen()),
+                    onTap: () async => {
+                      await getList("chemistry"),
+                      Get.to(QuizScreen())
+                    },
                     child:
                     Container(
                       alignment: Alignment.bottomLeft,
@@ -65,16 +66,9 @@ class SelectArea extends StatelessWidget{
               ),
 
                   InkWell(
-                    onTap: () {
-                      AlertDialog alert = AlertDialog(
-                        title: Text('Chưa có câu hỏi nào'),
-                      );
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return alert;
-                        },
-                      );
+                    onTap: () async => {
+                      await getList("physic"),
+                      Get.to(QuizScreen())
                     },
 
                     child:
@@ -108,16 +102,9 @@ class SelectArea extends StatelessWidget{
                   ),
 
                   InkWell(
-                    onTap: () {
-                      AlertDialog alert = AlertDialog(
-                        title: Text('Chưa có câu hỏi nào'),
-                      );
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return alert;
-                        },
-                      );
+                    onTap: () async => {
+                      await getList("history"),
+                      Get.to(QuizScreen())
                     },
 
                     child:

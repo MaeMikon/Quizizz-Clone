@@ -118,7 +118,13 @@ class WelcomeScreen extends StatelessWidget {
     else {
       databaseReference.child("user_information").once().then((DataSnapshot snapshot){
         if(snapshot.value["email"] == _email.text && snapshot.value["password"] == _password.text) {
-          Get.to(SelectArea());
+          Navigator.pushAndRemoveUntil<dynamic>(
+            context,
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => SelectArea(),
+            ),
+            (route) => false,
+          );
         }
         else {
           SweetAlert.show(context, subtitle: "Invalid username or password", style: SweetAlertStyle.error);
