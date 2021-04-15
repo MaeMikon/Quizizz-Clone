@@ -23,13 +23,13 @@ class WelcomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Spacer(flex: 1), //2/6
                   Text(
                     "Quiz App",
                     style: Theme.of(context).textTheme.headline4.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 48),
+                        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 52),
                   ),
                   Spacer(), // 1/6
                   Container(
@@ -118,7 +118,13 @@ class WelcomeScreen extends StatelessWidget {
     else {
       databaseReference.child("user_information").once().then((DataSnapshot snapshot){
         if(snapshot.value["email"] == _email.text && snapshot.value["password"] == _password.text) {
-          Get.to(SelectArea());
+          Navigator.pushAndRemoveUntil<dynamic>(
+            context,
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) => SelectArea(),
+            ),
+            (route) => false,
+          );
         }
         else {
           SweetAlert.show(context, subtitle: "Invalid username or password", style: SweetAlertStyle.error);

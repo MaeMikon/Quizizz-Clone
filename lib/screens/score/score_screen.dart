@@ -3,8 +3,18 @@ import 'package:get/get.dart';
 import 'package:quiz_app/constants.dart';
 import 'package:quiz_app/controllers/question_controller.dart';
 import 'package:websafe_svg/websafe_svg.dart';
+import 'package:quiz_app/screens/area/select_area.dart';
+import 'package:flutter/widgets.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:quiz_app/models/Questions.dart';
 
 class ScoreScreen extends StatelessWidget {
+  final databaseReference = FirebaseDatabase.instance.reference();
+
+  final chemistryCategory = getQuestionState("chemistry_state");
+  final physicCategory = getQuestionState("physic_state");
+  final historyCategory = getQuestionState("history_state");
+
   @override
   Widget build(BuildContext context) {
     QuestionController _qnController = Get.put(QuestionController());
@@ -49,7 +59,35 @@ class ScoreScreen extends StatelessWidget {
                         style: TextStyle(fontSize: 60)
                     )
             ],
-          )
+          ),
+          InkWell(
+            onTap: () => {
+              Navigator.pushAndRemoveUntil<dynamic>(
+                context,
+                MaterialPageRoute<dynamic>(
+                  builder: (BuildContext context) => SelectArea(),
+                ),
+                (route) => false,
+              )
+            },
+
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(kDefaultPadding * 0.5), // 15
+              margin: EdgeInsets.only(left:60.0, right:60.0, top:480.0, bottom: 100.0),
+              decoration: BoxDecoration(
+                gradient: kPrimaryGradient,
+                borderRadius: BorderRadius.all(Radius.circular(12)),
+              ),
+              child: Text(
+                "Come Back",
+                style: Theme.of(context)
+                    .textTheme
+                    .button
+                    .copyWith(color: Colors.black),
+              ),
+            ),
+          ),
         ],
       ),
     );
