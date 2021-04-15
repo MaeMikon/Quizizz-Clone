@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:quiz_app/models/Questions.dart';
 import 'package:quiz_app/screens/score/score_screen.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 // We use get package for our state management
 
 class QuestionController extends GetxController
-    with SingleGetTickerProviderMixin {
+with SingleGetTickerProviderMixin {
+  final databaseReference = FirebaseDatabase.instance.reference();
   // Lets animated our progress bar
 
   AnimationController _animationController;
@@ -17,6 +19,8 @@ class QuestionController extends GetxController
 
   PageController _pageController;
   PageController get pageController => this._pageController;
+
+  String category = chosen_category;
 
   List<Question> _questions = sample_data
       .map(
@@ -105,6 +109,10 @@ class QuestionController extends GetxController
       _animationController.forward().whenComplete(nextQuestion);
     } else {
       // Get package provide us simple way to naviigate another page
+       databaseReference.child("${this.category}_state").set({
+          "correct_answer": this.numOfCorrectAns,
+          "question": this.questions.length
+        });
       Get.to(ScoreScreen());
     }
   }

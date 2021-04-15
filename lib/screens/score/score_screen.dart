@@ -5,8 +5,16 @@ import 'package:quiz_app/controllers/question_controller.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 import 'package:quiz_app/screens/area/select_area.dart';
 import 'package:flutter/widgets.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:quiz_app/models/Questions.dart';
 
 class ScoreScreen extends StatelessWidget {
+  final databaseReference = FirebaseDatabase.instance.reference();
+
+  final chemistryCategory = getQuestionState("chemistry_state");
+  final physicCategory = getQuestionState("physic_state");
+  final historyCategory = getQuestionState("history_state");
+
   @override
   Widget build(BuildContext context) {
     QuestionController _qnController = Get.put(QuestionController());

@@ -7,7 +7,7 @@ import 'package:quiz_app/screens/quiz/quiz_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 import 'package:quiz_app/models/Questions.dart';
 
-class SelectArea extends StatelessWidget{
+class SelectArea extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,12 +54,12 @@ class SelectArea extends StatelessWidget{
                             animation: true,
                             lineHeight: 25.0,
                             animationDuration: 2000,
-                            percent: 0.5,
-                            center: Text("50.0%"),
+                            percent: chemistry_category["correct_answer"] / chemistry_category["question"],
+                            center: Text("${(chemistry_category["correct_answer"] * 100 / chemistry_category["question"]).toInt()}%"),
                             linearStrokeCap: LinearStrokeCap.roundAll,
                             progressColor: Colors.greenAccent,
                           ),
-                          Text("10/20 câu hỏi đã hoàn thành", style: TextStyle(color: Colors.black, fontSize: 18),),
+                          Text("${chemistry_category["correct_answer"]}/${chemistry_category["question"]} câu hỏi đã hoàn thành", style: TextStyle(color: Colors.black, fontSize: 18),),
                         ],
                       )
                   ),
@@ -90,12 +90,12 @@ class SelectArea extends StatelessWidget{
                               animation: true,
                               lineHeight: 25.0,
                               animationDuration: 2000,
-                              percent: 0.0,
-                              center: Text("0.0%"),
+                              percent: physic_category["correct_answer"] / physic_category["question"],
+                              center: Text("${(physic_category["correct_answer"] * 100 / physic_category["question"]).toInt()}%"),
                               linearStrokeCap: LinearStrokeCap.roundAll,
                               progressColor: Colors.greenAccent,
                             ),
-                            Text("Chưa có câu hỏi", style: TextStyle(color: Colors.black, fontSize: 18),),
+                            Text("${physic_category["correct_answer"]}/${physic_category["question"]} câu hỏi đã hoàn thành", style: TextStyle(color: Colors.black, fontSize: 18),),
                           ],
                         )
                     ),
@@ -126,12 +126,12 @@ class SelectArea extends StatelessWidget{
                               animation: true,
                               lineHeight: 25.0,
                               animationDuration: 2000,
-                              percent: 0.0,
-                              center: Text("0.0%"),
+                              percent: history_category["correct_answer"] / history_category["question"],
+                              center: Text("${(history_category["correct_answer"] * 100 / history_category["question"]).toInt()}%"),
                               linearStrokeCap: LinearStrokeCap.roundAll,
                               progressColor: Colors.greenAccent,
                             ),
-                            Text("Chưa có câu hỏi", style: TextStyle(color: Colors.black, fontSize: 18),),
+                            Text("${history_category["correct_answer"]}/${history_category["question"]} câu hỏi đã hoàn thành", style: TextStyle(color: Colors.black, fontSize: 18),),
                           ],
                         )
                     ),
