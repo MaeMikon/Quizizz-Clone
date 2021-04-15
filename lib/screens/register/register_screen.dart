@@ -13,6 +13,7 @@ class Register_Screen extends StatelessWidget{
   final _email = TextEditingController();
   final _password = TextEditingController();
   final _confirmedPassword = TextEditingController();
+  static bool register_result = false;
 
   
   @override
@@ -38,6 +39,7 @@ class Register_Screen extends StatelessWidget{
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: TextField(
+                      key: Key("Username"),
                       controller: _username,
                       decoration: InputDecoration(
                         filled: true,
@@ -52,6 +54,7 @@ class Register_Screen extends StatelessWidget{
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: TextField(
+                      key:Key("Email"),
                       controller: _email,
                       decoration: InputDecoration(
                         filled: true,
@@ -66,6 +69,7 @@ class Register_Screen extends StatelessWidget{
                   Container(
                     padding: EdgeInsets.all(10.0),
                     child: TextField(
+                      key:Key("Password"),
                       controller: _password,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -81,6 +85,7 @@ class Register_Screen extends StatelessWidget{
                   Container(
                       padding: EdgeInsets.all(10.0),
                       child: TextField(
+                        key:Key("ConfirmPassword"),
                         controller: _confirmedPassword,
                         obscureText: true,
                         decoration: InputDecoration(
@@ -107,6 +112,7 @@ class Register_Screen extends StatelessWidget{
                       ),
                       child: Text(
                         "Create Account",
+                        key:Key("registerButton"),
                         style: Theme.of(context)
                             .textTheme
                             .button
@@ -149,6 +155,7 @@ class Register_Screen extends StatelessWidget{
         'email': _email.text,
         'password': _password.text
       });
+      register_result=true;
       Navigator.pushAndRemoveUntil<dynamic>(
         context,
         MaterialPageRoute<dynamic>(
