@@ -14,5 +14,6 @@
 + Nguyễn Duy Diễn
 + Hoàng Văn Hiếu
 # Kết quả kiểm thử
-![image](https://user-images.githubusercontent.com/39037356/114823756-24328500-9dee-11eb-8895-7aff24e00f3c.png)
+![image](https://user-images.githubusercontent.com/39037356/114823927-5cd25e80-9dee-11eb-879b-9c3016f314ed.png)
+
 
