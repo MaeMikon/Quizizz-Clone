@@ -23,13 +23,13 @@ class WelcomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Spacer(flex: 1), //2/6
                   Text(
                     "Quiz App",
                     style: Theme.of(context).textTheme.headline4.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 48),
+                        color: Colors.white, fontWeight: FontWeight.bold, fontSize: 52),
                   ),
                   Spacer(), // 1/6
                   Container(
