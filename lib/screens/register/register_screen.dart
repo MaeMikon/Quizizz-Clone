@@ -13,6 +13,7 @@ class Register_Screen extends StatelessWidget{
   final _email = TextEditingController();
   final _password = TextEditingController();
   final _confirmedPassword = TextEditingController();
+
   
   @override
   Widget build(BuildContext context) {
