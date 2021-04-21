@@ -6,14 +6,15 @@ import 'package:get/get.dart';
 import 'package:quiz_app/screens/welcome/welcome_screen.dart';
 import 'package:sweetalert/sweetalert.dart';
 
-class Register_Screen extends StatelessWidget{
+class Register_Screen extends StatelessWidget {
 
   final databaseReference = FirebaseDatabase.instance.reference();
-  final _username = TextEditingController();
-  final _email = TextEditingController();
-  final _password = TextEditingController();
-  final _confirmedPassword = TextEditingController();
-  static bool register_result = false;
+  final username = TextEditingController();
+  final email = TextEditingController();
+  final password = TextEditingController();
+  final confirmedPassword = TextEditingController();
+  static String errorMessage = "";
+  static bool registerResult = false;
 
   
   @override
@@ -40,7 +41,7 @@ class Register_Screen extends StatelessWidget{
                     margin: EdgeInsets.all(10.0),
                     child: TextField(
                       key: Key("Username"),
-                      controller: _username,
+                      controller: username,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Color(0xFF1C2341),
@@ -54,8 +55,8 @@ class Register_Screen extends StatelessWidget{
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: TextField(
-                      key:Key("Email"),
-                      controller: _email,
+                      key: Key("Email"),
+                      controller: email,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Color(0xFF1C2341),
@@ -69,8 +70,8 @@ class Register_Screen extends StatelessWidget{
                   Container(
                     padding: EdgeInsets.all(10.0),
                     child: TextField(
-                      key:Key("Password"),
-                      controller: _password,
+                      key: Key("Password"),
+                      controller: password,
                       obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
@@ -85,8 +86,8 @@ class Register_Screen extends StatelessWidget{
                   Container(
                       padding: EdgeInsets.all(10.0),
                       child: TextField(
-                        key:Key("ConfirmPassword"),
-                        controller: _confirmedPassword,
+                        key: Key("ConfirmPassword"),
+                        controller: confirmedPassword,
                         obscureText: true,
                         decoration: InputDecoration(
                           filled: true,
@@ -112,7 +113,7 @@ class Register_Screen extends StatelessWidget{
                       ),
                       child: Text(
                         "Create Account",
-                        key:Key("registerButton"),
+                        key: Key("registerButton"),
                         style: Theme.of(context)
                             .textTheme
                             .button
@@ -130,32 +131,39 @@ class Register_Screen extends StatelessWidget{
     );
   }
 
-  void createAccount(BuildContext context) {
-    if(_username.text == "") {
-      SweetAlert.show(context, subtitle: "Username is not empty", style: SweetAlertStyle.error);
+  String createAccount(BuildContext context) {
+    if(username.text == "") {
+      errorMessage = "Username is not empty";
+      SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
     }
-    else if (_email.text == "") {
-      SweetAlert.show(context, subtitle: "Email is not empty", style: SweetAlertStyle.error);
+    else if (email.text == "") {
+      errorMessage = "Email is not empty";
+      SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
     }
-    else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(_email.text)) {
-      SweetAlert.show(context, subtitle: "Email is invalid", style: SweetAlertStyle.error);
+    else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(email.text)) {
+      errorMessage = "Email is invalid";
+      SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
     }
-    else if (_password.text == "") {
-      SweetAlert.show(context, subtitle: "Password is not empty", style: SweetAlertStyle.error);
+    else if (password.text == "") {
+      errorMessage = "Password is not empty";
+      SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
     }
-    else if (_confirmedPassword.text == "") {
-      SweetAlert.show(context, subtitle: "Confirm Password is not empty", style: SweetAlertStyle.error);
+    else if (confirmedPassword.text == "") {
+      errorMessage = "Confirm Password is not empty";
+      SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
     }
-    else if(_password.text != _confirmedPassword.text) {
-      SweetAlert.show(context, subtitle: "Confirm password do not match", style: SweetAlertStyle.error);
+    else if(password.text != confirmedPassword.text) {
+      errorMessage = "Confirm Password do not match";
+      SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
     }
     else {
+      errorMessage = null;
       databaseReference.child("user_information").set({
-        'username': _username.text,
-        'email': _email.text,
-        'password': _password.text
+        'username': username.text,
+        'email': email.text,
+        'password': password.text
       });
-      register_result=true;
+      registerResult = true;
       Navigator.pushAndRemoveUntil<dynamic>(
         context,
         MaterialPageRoute<dynamic>(
@@ -164,6 +172,8 @@ class Register_Screen extends StatelessWidget{
         (route) => false,
       );
     }
+
+    return null;
   } 
 }
 
