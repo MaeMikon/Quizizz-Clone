@@ -1,8 +1,7 @@
-<<<<<<< HEAD
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-=======
->>>>>>> 27685188124906439231e230f5ee6b97e56adf71
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -26,11 +25,10 @@ void main() {
       await tester.tap(createButton);
       
     //expectedOutput
-<<<<<<< HEAD
-      expect(Register_Screen.isCreated,true);
-=======
-      expect(Register_Screen.registerResult, false);
->>>>>>> 27685188124906439231e230f5ee6b97e56adf71
+
+
+      expect(Register_Screen.registerResult, true);
+
 
   });
 }
