@@ -39,6 +39,7 @@ dependencies:
 
   # state management, intelligent dependency injection, and route management
   get: ^3.24.0
+  test: ^1.16.5
 
 dev_dependencies:
   flutter_test:

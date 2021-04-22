@@ -5,12 +5,18 @@ import 'package:websafe_svg/websafe_svg.dart';
 import 'package:quiz_app/screens/area/select_area.dart';
 import 'package:quiz_app/screens/register/register_screen.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:quiz_app/models/Questions.dart';
 import 'package:sweetalert/sweetalert.dart';
 
 class WelcomeScreen extends StatelessWidget {
   final databaseReference = FirebaseDatabase.instance.reference();
   final _email = TextEditingController();
   final _password = TextEditingController();
+  static String errorMessage = "";
+
+  final chemistryCategory = getQuestionState("chemistry_state");
+  final physicCategory = getQuestionState("physic_state");
+  final historyCategory = getQuestionState("history_state");
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +41,7 @@ class WelcomeScreen extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: TextField(
+                      key: Key("Email"),
                       controller: _email,
                       decoration: InputDecoration(
                         filled: true,
@@ -50,6 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                     padding: EdgeInsets.all(10.0),
 
                     child: TextField(
+                      key: Key("Password"),
                       controller: _password,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -76,6 +84,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       child: Text(
                         "Login",
+                        key: Key("loginButton"),
                         style: Theme.of(context)
                             .textTheme
                             .button
@@ -89,6 +98,7 @@ class WelcomeScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(left:60.0, right:60.0),
                       child: Text("Don't have an account? Register here.",
+                        key: Key("Don't have an account? Register here."),
                         textAlign: TextAlign.center,
                         style:  Theme.of(context).textTheme.headline4.copyWith(
                           color: Colors.blueAccent, fontSize: 20, ),
@@ -107,6 +117,7 @@ class WelcomeScreen extends StatelessWidget {
 
   void login(BuildContext context) {
     if (_email.text == "") {
+      errorMessage = "Email is not empty";
       SweetAlert.show(context, subtitle: "Email is not empty", style: SweetAlertStyle.error);
     }
     else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(_email.text)) {
@@ -116,7 +127,7 @@ class WelcomeScreen extends StatelessWidget {
       SweetAlert.show(context, subtitle: "Password is not empty", style: SweetAlertStyle.error);
     }
     else {
-      databaseReference.child("user_information").once().then((DataSnapshot snapshot){
+      databaseReference.child("user_information").once().then((DataSnapshot snapshot) {
         if(snapshot.value["email"] == _email.text && snapshot.value["password"] == _password.text) {
           Navigator.pushAndRemoveUntil<dynamic>(
             context,
@@ -127,9 +138,11 @@ class WelcomeScreen extends StatelessWidget {
           );
         }
         else {
-          SweetAlert.show(context, subtitle: "Invalid username or password", style: SweetAlertStyle.error);
+          errorMessage = "Invalid username or password";
+          SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
         }
       });
+      errorMessage = "Invalid username or password";
     }
   }
 }

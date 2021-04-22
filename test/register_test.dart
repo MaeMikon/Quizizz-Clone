@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+=======
+>>>>>>> 27685188124906439231e230f5ee6b97e56adf71
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:quiz_app/screens/register/register_screen.dart';
 
@@ -14,14 +18,19 @@ void main() {
       final sampleUser = "Linh Linh@gmail.com 541999";
       final createButton = find.byKey(ValueKey("registerButton"));
     //excecute Test
-      await tester.pumpWidget(MaterialApp(home: Register_Screen(),));
+      await tester.pumpWidget(MaterialApp(home: Register_Screen()));
       await tester.enterText(username, "Linh");
       await tester.enterText(email, "Linh@gmail.com");
       await tester.enterText(password, "541999");
       await tester.enterText(confirmPassword, "541999");
       await tester.tap(createButton);
+      
     //expectedOutput
+<<<<<<< HEAD
       expect(Register_Screen.isCreated,true);
+=======
+      expect(Register_Screen.registerResult, false);
+>>>>>>> 27685188124906439231e230f5ee6b97e56adf71
 
   });
 }
