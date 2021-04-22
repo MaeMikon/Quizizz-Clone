@@ -142,7 +142,7 @@ class WelcomeScreen extends StatelessWidget {
           SweetAlert.show(context, subtitle: errorMessage, style: SweetAlertStyle.error);
         }
       });
-      errorMessage = "Invalid username or password";
+
     }
   }
 }
