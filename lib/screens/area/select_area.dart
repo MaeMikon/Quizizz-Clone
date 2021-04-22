@@ -50,7 +50,7 @@ class SelectArea extends StatelessWidget {
                         children: <Widget>[
                           Text("Hóa học", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 32)),
                           new LinearPercentIndicator(
-                            width: 300,
+                            //width: 300,
                             animation: true,
                             lineHeight: 25.0,
                             animationDuration: 2000,
@@ -86,7 +86,7 @@ class SelectArea extends StatelessWidget {
                           children: <Widget>[
                             Text("Vật lý", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 32)),
                             new LinearPercentIndicator(
-                              width: 300,
+                              //width: 300,
                               animation: true,
                               lineHeight: 25.0,
                               animationDuration: 2000,
@@ -122,7 +122,7 @@ class SelectArea extends StatelessWidget {
                           children: <Widget>[
                             Text("Lịch sử", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black, fontSize: 32)),
                             new LinearPercentIndicator(
-                              width: 300,
+                              //width: 300,
                               animation: true,
                               lineHeight: 25.0,
                               animationDuration: 2000,
