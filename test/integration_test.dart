@@ -2,7 +2,6 @@ import 'package:integration_test/integration_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quiz_app/models/Questions.dart';
 import 'package:quiz_app/screens/register/register_screen.dart';
 import 'package:quiz_app/screens/welcome/welcome_screen.dart';
 import 'package:quiz_app/main.dart' as app;
@@ -27,17 +26,6 @@ void main() {
       expect(Register_Screen.registerResult, true);
   });
 
-  testWidgets('Question Screen', (WidgetTester tester) async {
-    //find Widget
-      final answer = find.byKey(ValueKey("Answer1"));
-
-    //excecute Test
-      await tester.pumpWidget(MaterialApp(home: Question()));
-      await tester.tap(answer);
-      
-    //expectedOutput
-      expect(Question.correct_answer, true);
-  });
   group('Quizz App',(){
     IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
