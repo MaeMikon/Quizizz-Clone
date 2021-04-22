@@ -68,7 +68,7 @@ void main() {
       await tester.pumpAndSettle();
       //Nhập dữ liệu đă đăng ký để đăng nhập
       await tester.enterText(loginEmail, "Mikon@gmail.com");
-      await tester.enterText(loginPassword, "Mikon");
+      await tester.enterText(loginPassword, "Mikon1");
       await tester.pumpAndSettle();
       await tester.tap(loginButton);
       await tester.pumpAndSettle();
