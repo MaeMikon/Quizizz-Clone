@@ -41,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
                   Container(
                     margin: EdgeInsets.all(10.0),
                     child: TextField(
-                      key: Key("Email"),
+                      key: Key("loginEmail"),
                       controller: _email,
                       decoration: InputDecoration(
                         filled: true,
@@ -57,7 +57,7 @@ class WelcomeScreen extends StatelessWidget {
                     padding: EdgeInsets.all(10.0),
 
                     child: TextField(
-                      key: Key("Password"),
+                      key: Key("loginPassword"),
                       controller: _password,
                       obscureText: true,
                       decoration: InputDecoration(
@@ -98,7 +98,7 @@ class WelcomeScreen extends StatelessWidget {
                       alignment: Alignment.center,
                       margin: EdgeInsets.only(left:60.0, right:60.0),
                       child: Text("Don't have an account? Register here.",
-                        key: Key("Don't have an account? Register here."),
+                        key: Key("Go to Register"),
                         textAlign: TextAlign.center,
                         style:  Theme.of(context).textTheme.headline4.copyWith(
                           color: Colors.blueAccent, fontSize: 20, ),

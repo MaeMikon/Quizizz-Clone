@@ -115,8 +115,8 @@ void main() {
 
   // Login Screen 
   testWidgets("Login Screen", (WidgetTester tester) async {
-    final email = find.byKey(ValueKey("Email"));
-    final password = find.byKey(ValueKey("Password"));
+    final email = find.byKey(ValueKey("loginEmail"));
+    final password = find.byKey(ValueKey("loginPassword"));
     final loginButton = find.byKey(ValueKey("loginButton"));
     
     await tester.pumpWidget(MaterialApp(home: WelcomeScreen()));

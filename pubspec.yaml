@@ -40,10 +40,14 @@ dependencies:
   # state management, intelligent dependency injection, and route management
   get: ^3.24.0
   test: ^1.16.5
+  integration_test: ^1.0.2+3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  test: any
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
