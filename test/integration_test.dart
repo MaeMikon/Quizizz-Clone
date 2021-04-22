@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:quiz_app/models/Questions.dart';
 import 'package:quiz_app/screens/register/register_screen.dart';
 import 'package:quiz_app/screens/welcome/welcome_screen.dart';
+import 'package:quiz_app/main.dart' as app;
 
 void main() {
   testWidgets('Test Screen', (WidgetTester tester) async {
